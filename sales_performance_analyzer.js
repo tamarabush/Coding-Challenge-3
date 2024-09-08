@@ -9,8 +9,6 @@ const salesData = [
     ];
 
 
-
-
 // TASK 1 - Create a Function to Calculate Average Sales:
 
 let salesNumbers = [12000, 15000, 13000]; //Dataset from data provided 
@@ -82,7 +80,6 @@ function findTopAndBottomPerformers(salesData) {
 
 };
 
-
 let topBottomPerformers = findTopAndBottomPerformers(salesData);
 //applying the function to the sales data
 
@@ -94,4 +91,41 @@ console.log("Bottom Performer:", topBottomPerformers.bottomPerformer);
 
 
 
-// TASK 4 - Test Your Functions with Sample Data
+// TASK 4 - Combine Functions to Generate a Performance Report:
+
+function generatePerformanceReport(salesData) {
+    //first creating function to capture data from salesData
+
+    const report = salesData.map(salesPerson => {
+        //using the map method to capture data from each sales person
+
+        const average = calculateAverageSales(salesPerson.sales);
+        //calling average function to calculate the average
+
+        const performanceRating = determinePerformanceRating(average);
+        return{
+            //assigning a rating to each sales person in the data array 
+
+            name: salesPerson.name, //naming each sales person
+            average: average, //average that was calculated before
+            performanceRating: performanceRating //assigning performance rating 
+        }
+    });
+
+    const  topAndBottom = findTopAndBottomPerformers(salesData);
+        //calling the top/bottom function to apply it to the salesdata array
+
+        return {
+            report: report, 
+            topPerformer: topBottomPerformers.topPerformer,
+            bottomPerformer: topBottomPerformers.bottomPerformer
+}};
+
+let performanceReport = generatePerformanceReport(salesData);
+//applied function to salesData
+
+console.log("Performance Report Data List:", performanceReport.report);
+console.log("Top Performer:", performanceReport.topPerformer);
+console.log("Bottom Performer:", performanceReport.bottomPerformer);
+
+
