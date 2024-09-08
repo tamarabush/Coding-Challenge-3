@@ -53,15 +53,16 @@ console.log (performanceRating)
 
 
 
-
 // TASK 3 - Create a Function to Identify Top and Bottom Performers:
 
 function findTopAndBottomPerformers(salesData) {
     //first calculating total sales of the sales data
+
     const totalSales = salesData.map(salesPerson => ({ //using map method to create a new array 
         name: salesPerson.name, //identifying sales person throught the data set array
         totalSales: salesPerson.sales.reduce((sum, sale) => sum + sale, 0)
         //using reduce method to calculate total sales 
+        
     }));
 
     const maxSales = Math.max(...totalSales.map(salesPerson => salesPerson.totalSales));
@@ -125,6 +126,7 @@ let performanceReport = generatePerformanceReport(salesData);
 //applied function to salesData
 
 console.log("Performance Report:", performanceReport.report);
+//if you are unable to see the output for the performance report, you are able to see it on the HTML website.
 
 //output =
 //{name: 'Alice', average: 13333.333333333334, performanceRating: 'Excellent'}
