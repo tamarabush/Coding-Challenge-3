@@ -5,8 +5,7 @@ const salesData = [
     { name: 'Bob', sales: [7000, 6000, 7500] },
     { name: 'Charlie', sales: [3000, 4000, 3500] },   
     { name: 'Diana', sales: [9000, 8500, 9200] }
-    
-    ];
+];
 
 
 // TASK 1 - Create a Function to Calculate Average Sales:
@@ -107,25 +106,35 @@ function generatePerformanceReport(salesData) {
             //assigning a rating to each sales person in the data array 
 
             name: salesPerson.name, //naming each sales person
-            average: average, //average that was calculated before
-            performanceRating: performanceRating //assigning performance rating 
+            average, //average that was calculated before
+            performanceRating, //assigning performance rating 
         }
     });
 
-    const  topAndBottom = findTopAndBottomPerformers(salesData);
+    const  topBottomPerformers = findTopAndBottomPerformers(salesData);
         //calling the top/bottom function to apply it to the salesdata array
 
         return {
-            report: report, 
+            report, //returning report
             topPerformer: topBottomPerformers.topPerformer,
             bottomPerformer: topBottomPerformers.bottomPerformer
 }};
 
+
 let performanceReport = generatePerformanceReport(salesData);
 //applied function to salesData
 
-console.log("Performance Report Data List:", performanceReport.report);
-console.log("Top Performer:", performanceReport.topPerformer);
-console.log("Bottom Performer:", performanceReport.bottomPerformer);
+console.log("Performance Report:", performanceReport.report);
 
+//output =
+//{name: 'Alice', average: 13333.333333333334, performanceRating: 'Excellent'}
+//{name: 'Bob', average: 6833.333333333333, performanceRating: 'Satisfactory'}
+//{name: 'Charlie', average: 3500, performanceRating: 'Needs Improvement'}
+//{name: 'Diana', average: 8900, performanceRating: 'Good'}
+
+console.log("Top Performer:", performanceReport.topPerformer);
+//output = Top Performer: {name: 'Alice', totalSales: 40000}
+
+console.log("Bottom Performer:", performanceReport.bottomPerformer);
+//output = Bottom Performer: {name: 'Charlie', totalSales: 10500}
 
